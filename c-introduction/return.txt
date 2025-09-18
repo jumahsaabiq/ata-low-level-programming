@@ -1,0 +1,1 @@
+when main returns 1 instead of 0, the exit status shows 1, indicating an error exit
