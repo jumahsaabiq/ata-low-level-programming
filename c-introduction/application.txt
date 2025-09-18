@@ -1,0 +1,5 @@
+unix operating system
+linux kernel
+git version control system
+oracle database
+python interpreter
