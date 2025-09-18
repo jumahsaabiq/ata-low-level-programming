@@ -1,0 +1,3 @@
+C is the foundation for many modern languages
+C is efficient and fast
+C is widely used in operating systems and embedded systems
