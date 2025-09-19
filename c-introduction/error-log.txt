@@ -1,0 +1,4 @@
+c-introduction/hello.c: In function ‘main’:
+c-introduction/hello.c:4:5: error: expected declaration or statement at end of input
+    4 |     printf("Hello, World!\n");
+      |     ^~~~~~
