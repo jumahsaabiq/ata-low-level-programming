@@ -1,0 +1,2 @@
+a compiler translates source code written in c into machine code that the computer can execute. the output is usually an executable file that can be run directly by the operating system.
+
