@@ -1,0 +1,2 @@
+#include <stdio.h> searches for the header file in the system directories
+while #include "stdio.h" searches for the header file in the current directory first before the system directories
