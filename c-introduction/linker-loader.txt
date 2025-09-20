@@ -1,0 +1,2 @@
+A linker combines object files and libraries into a single executable program, while a loader loads the executable into memory preparing it for execution by the OS.
+The linker works at build time, while the loader works at run time.
