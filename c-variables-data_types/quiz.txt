@@ -1,0 +1,8 @@
+1. What is the difference between // and /* … */?
+// is used for single-line comments, while /* … */ is used for multi-line comments.
+
+2. Why do we need keywords in a programming language?
+Keywords define the structure and rules of the language; they tell the compiler how to interpret the code.
+
+3. Give 3 examples of C keywords
+int, return, if
