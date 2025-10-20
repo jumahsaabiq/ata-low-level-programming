@@ -1,32 +1,27 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
- * main - determines if an integer is positive, negative, or zero
- * description: The program takes an integer input and prints whether
- * it is positive, negative, or zero. Handles invalid input gracefully.
- * return: 0
+ * main - reads an integer from stdin and prints whether it is positive,
+ * negative, or zero. For invalid (non-integer) input the program exits
+ * with a non-zero code and prints nothing.
+ * return: 0 on success, 1 on invalid input
 */
 
 int main(void)
 {
-    int number;
-    int result;
+    long long number;
 
-    printf("Enter an integer: ");
-    result = scanf("%d", &number);
-
-    if (result != 1)
-    {
-        printf("Invalid input. Please enter a valid integer.\n");
-        return 1;
-    }
+    /* Read from stdin without printing any prompt text */
+    if (scanf("%lld", &number) != 1)
+        return 1; /* invalid input */
 
     if (number > 0)
-        printf("%d is a positive number.\n", number);
+        printf("%lld is a positive number.\n", number);
     else if (number < 0)
-        printf("%d is a negative number.\n", number);
+        printf("%lld is a negative number.\n", number);
     else
-        printf("%d is zero.\n", number);
+        printf("%lld is zero.\n", number);
 
     return 0;
 }
