@@ -1,27 +1,22 @@
 #include <stdio.h>
 
-/**
- * main - calculates the sum of natural numbers up to n
- * description: The program takes a positive integer n as input
- * and uses a for loop to compute the sum of natural numbers from 1 to n.
- * return: 0
-*/
-
-int main(void)
-{
-    int n, i, sum = 0;
+int main() {
+    int n, sum = 0;
 
     printf("Enter a positive integer: ");
-    scanf("%d", &n);
-
-    if (n <= 0)
-    {
-        printf("Please enter a positive integer.\n");
-        return 1;
+    
+    // Validate input type
+    if (scanf("%d", &n) != 1) {
+        return 1; // invalid input, not integer
     }
 
-    for (i = 1; i <= n; i++)
-    {
+    // Gracefully handle zero or negative inputs
+    if (n <= 0) {
+        printf("Sum of natural numbers up to %d is: 0\n", n);
+        return 0;
+    }
+
+    for (int i = 1; i <= n; i++) {
         sum += i;
     }
 
