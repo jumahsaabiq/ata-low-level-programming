@@ -1,9 +1,8 @@
 #include <stdio.h>
-#define PI 3.14159
 
 int main() {
     int choice;
-    double radius, length, width, base, height, area;
+    float radius, length, width, base, height, area;
 
     printf("Menu:\n");
     printf("1. Calculate Area of Circle\n");
@@ -11,28 +10,32 @@ int main() {
     printf("3. Calculate Area of Triangle\n");
     printf("4. Exit\n");
     printf("Enter your choice: ");
-    scanf("%d", &choice);
+
+    if (scanf("%d", &choice) != 1) {
+        return 1; // invalid input
+    }
 
     switch (choice) {
         case 1:
             printf("Enter the radius of the circle: ");
-            scanf("%lf", &radius);
-            if (radius <= 0) {
+            if (scanf("%f", &radius) != 1 || radius <= 0) {
                 printf("Invalid input! Radius must be positive.\n");
-                break;
+                return 0;
             }
-            area = PI * radius * radius;
+            area = 3.14159f * radius * radius;
             printf("Area of Circle = %.2f\n", area);
             break;
 
         case 2:
             printf("Enter the length of the rectangle: ");
-            scanf("%lf", &length);
+            if (scanf("%f", &length) != 1 || length <= 0) {
+                printf("Invalid input! Length must be positive.\n");
+                return 0;
+            }
             printf("Enter the width of the rectangle: ");
-            scanf("%lf", &width);
-            if (length <= 0 || width <= 0) {
-                printf("Invalid input! Length and width must be positive.\n");
-                break;
+            if (scanf("%f", &width) != 1 || width <= 0) {
+                printf("Invalid input! Width must be positive.\n");
+                return 0;
             }
             area = length * width;
             printf("Area of Rectangle = %.2f\n", area);
@@ -40,14 +43,16 @@ int main() {
 
         case 3:
             printf("Enter the base of the triangle: ");
-            scanf("%lf", &base);
-            printf("Enter the height of the triangle: ");
-            scanf("%lf", &height);
-            if (base <= 0 || height <= 0) {
-                printf("Invalid input! Base and height must be positive.\n");
-                break;
+            if (scanf("%f", &base) != 1 || base <= 0) {
+                printf("Invalid input! Base must be positive.\n");
+                return 0;
             }
-            area = 0.5 * base * height;
+            printf("Enter the height of the triangle: ");
+            if (scanf("%f", &height) != 1 || height <= 0) {
+                printf("Invalid input! Height must be positive.\n");
+                return 0;
+            }
+            area = 0.5f * base * height;
             printf("Area of Triangle = %.2f\n", area);
             break;
 
@@ -56,7 +61,7 @@ int main() {
             break;
 
         default:
-            printf("Invalid choice! Please enter a number between 1 and 4.\n");
+            printf("Invalid choice. Please enter a number between 1 and 4.\n");
     }
 
     return 0;
