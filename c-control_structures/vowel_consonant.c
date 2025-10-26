@@ -6,21 +6,22 @@ int main() {
 
     printf("Enter a character: ");
     if (scanf(" %c", &ch) != 1) {
-        return 1; // invalid input
+        return 1; // input error
     }
 
-    // Check if character is a letter
-    if (!isalpha(ch)) {
-        return 0; // do nothing for digits or special characters
-    }
+    // Check if it's an alphabet letter
+    if (isalpha(ch)) {
+        // Convert to lowercase for easier comparison
+        char lower = tolower(ch);
 
-    // Check for vowels using logical OR
-    if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ||
-        ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U') {
-        printf("'%c' is a vowel.\n", ch);
-    } else {
-        printf("'%c' is a consonant.\n", ch);
+        if (lower == 'a' || lower == 'e' || lower == 'i' || lower == 'o' || lower == 'u') {
+            printf("'%c' is a vowel.\n", ch);
+        } else {
+            printf("'%c' is a consonant.\n", ch);
+        }
     }
+    // No output for digits or special characters
 
     return 0;
 }
+
