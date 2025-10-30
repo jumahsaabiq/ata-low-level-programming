@@ -7,7 +7,9 @@
  */
 int get_square_of_five(void)
 {
-    return (int)pow(5, 2);
+    /* Use pow() to calculate 5 squared */
+    double result = pow(5.0, 2.0);
+    return (int)result;
 }
 
 /**
@@ -17,7 +19,7 @@ int get_square_of_five(void)
  */
 int main(void)
 {
-    int result = get_square_of_five();
-    printf("Square of 5 is: %d\n", result);
+    int square = get_square_of_five();
+    printf("Square of 5 is: %d\n", square);
     return 0;
 }
