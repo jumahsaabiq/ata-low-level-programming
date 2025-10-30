@@ -18,14 +18,10 @@ int main(void)
 {
     int a, b;
 
-    printf("Enter the first integer: ");
-    fflush(stdout);  /* ensure prompt appears immediately */
-
+    printf("Enter the first integer: ");  /* notice the space after colon */
     scanf("%d", &a);
 
-    printf("Enter the second integer: ");
-    fflush(stdout);
-
+    printf("Enter the second integer: "); /* notice the space after colon */
     scanf("%d", &b);
 
     print_sum(a, b);
