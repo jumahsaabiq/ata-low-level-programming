@@ -18,10 +18,10 @@ int main(void)
 {
     int a, b;
 
-    printf("Enter the first integer:\n");
+    printf("Enter the first integer: ");
     scanf("%d", &a);
 
-    printf("Enter the second integer:\n");
+    printf("Enter the second integer: ");
     scanf("%d", &b);
 
     print_sum(a, b);
