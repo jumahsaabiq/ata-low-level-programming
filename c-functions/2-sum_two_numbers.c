@@ -7,7 +7,7 @@
  */
 void print_sum(int a, int b)
 {
-    printf("Sum: %d\n", a + b);
+    printf("Sum: %d", a + b);
 }
 
 /**
@@ -16,15 +16,13 @@ void print_sum(int a, int b)
  */
 int main(void)
 {
-    int num1, num2;
+    int a, b;
 
     printf("Enter the first integer: ");
-    scanf("%d", &num1);
-
+    scanf("%d", &a);
     printf("Enter the second integer: ");
-    scanf("%d", &num2);
+    scanf("%d", &b);
 
-    print_sum(num1, num2);
-
+    print_sum(a, b);
     return 0;
 }
