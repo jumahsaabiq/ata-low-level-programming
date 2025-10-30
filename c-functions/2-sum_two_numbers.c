@@ -19,9 +19,13 @@ int main(void)
     int a, b;
 
     printf("Enter the first integer: ");
+    fflush(stdout);  /* ensure prompt appears immediately */
+
     scanf("%d", &a);
 
     printf("Enter the second integer: ");
+    fflush(stdout);
+
     scanf("%d", &b);
 
     print_sum(a, b);
