@@ -1,15 +1,13 @@
 #include <stdio.h>
 
 /**
- * fibonacci - returns the nth Fibonacci number recursively
+ * fibonacci - calculates the nth Fibonacci number recursively
  * @n: the position in the Fibonacci sequence
  *
  * Return: the nth Fibonacci number
  */
 int fibonacci(int n)
 {
-    if (n < 0)
-        return -1;  /* handle negative inputs safely */
     if (n == 0)
         return 0;
     if (n == 1)
@@ -18,8 +16,8 @@ int fibonacci(int n)
 }
 
 /**
- * main - Entry point
- *
+ * main - the main function
+ * description: reads an integer and prints its Fibonacci number
  * Return: 0
  */
 int main(void)
@@ -27,9 +25,9 @@ int main(void)
     int n;
 
     printf("Enter an integer: ");
-    if (scanf("%d", &n) != 1)
-        return 1;
+    scanf("%d", &n);
 
     printf("Fibonacci(%d) is: %d\n", n, fibonacci(n));
+
     return 0;
 }
