@@ -4,7 +4,7 @@
  *
  * Return: the square of num
  */
-static inline int square(int num)
+inline int square(int num)
 {
     return num * num;
 }
