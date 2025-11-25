@@ -2,43 +2,42 @@
 #include <stdlib.h>
 #include <time.h>
 
-/* Function prototypes */
-void display_rules(void);
-int generate_random_number(int min, int max);
-int get_player_guess(void);
-int check_guess(int secret_number, int guess);
-
-/* Display the rules of the game */
+/* Display the game rules */
 void display_rules(void)
 {
     printf("Welcome to the Guess the Number game!\n");
     printf("I have chosen a number between 1 and 100. Can you guess it?\n\n");
 }
 
-/* Generate a random number in [min, max] */
+/* Generate a random number between min and max (inclusive) */
 int generate_random_number(int min, int max)
 {
     return rand() % (max - min + 1) + min;
 }
 
-/* Get a valid guess from the player */
+/* Get a valid integer guess from the player */
 int get_player_guess(void)
 {
     int guess;
-    int result;
+    int valid;
 
     while (1)
     {
         printf("Enter your guess: ");
-        result = scanf("%d", &guess);
+        valid = scanf("%d", &guess);
 
-        if (result != 1)
+        if (valid != 1)
         {
             printf("Invalid input! Please enter an integer.\n");
-            while (getchar() != '\n') ; // Clear invalid input
+            /* Clear invalid input */
+            while (getchar() != '\n')
+                ;
         }
         else
         {
+            /* Clear any remaining characters in input buffer */
+            while (getchar() != '\n')
+                ;
             return guess;
         }
     }
@@ -64,13 +63,15 @@ int check_guess(int secret_number, int guess)
     }
 }
 
-/* Main function */
+/* Main game loop */
 int main(void)
 {
     int secret_number, guess;
     int attempts = 0;
 
-    srand(time(NULL));  // Seed random number generator
+    /* Seed random number generator */
+    srand(time(NULL));
+
     display_rules();
 
     secret_number = generate_random_number(1, 100);
@@ -81,7 +82,7 @@ int main(void)
         attempts++;
     } while (!check_guess(secret_number, guess));
 
-    printf("It took you %d attempt%s.\n", attempts, (attempts == 1) ? "" : "s");
+    printf("It took you %d attempt%s.\n", attempts, attempts == 1 ? "" : "s");
 
     return 0;
 }
