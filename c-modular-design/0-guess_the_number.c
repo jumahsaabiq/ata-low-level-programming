@@ -8,22 +8,20 @@ int generate_random_number(int min, int max);
 int get_player_guess(void);
 int check_guess(int secret_number, int guess);
 
-/* -------------------- FUNCTIONS -------------------- */
-
-/* Display the game rules */
+/* Display the rules of the game */
 void display_rules(void)
 {
     printf("Welcome to the Guess the Number game!\n");
     printf("I have chosen a number between 1 and 100. Can you guess it?\n\n");
 }
 
-/* Generate a random number in the inclusive range [min, max] */
+/* Generate a random number in [min, max] */
 int generate_random_number(int min, int max)
 {
     return rand() % (max - min + 1) + min;
 }
 
-/* Prompt the player to enter a guess; validate input */
+/* Get a valid guess from the player */
 int get_player_guess(void)
 {
     int guess;
@@ -34,17 +32,14 @@ int get_player_guess(void)
         printf("Enter your guess: ");
         result = scanf("%d", &guess);
 
-        if (result == 1)
+        if (result != 1)
         {
-            return guess;
+            printf("Invalid input! Please enter an integer.\n");
+            while (getchar() != '\n') ; // Clear invalid input
         }
         else
         {
-            printf("Invalid input! Please enter an integer.\n");
-            /* Clear invalid input */
-            int c;
-            while ((c = getchar()) != '\n' && c != EOF)
-                ;
+            return guess;
         }
     }
 }
@@ -69,25 +64,24 @@ int check_guess(int secret_number, int guess)
     }
 }
 
-/* -------------------- MAIN -------------------- */
+/* Main function */
 int main(void)
 {
-    srand(time(NULL)); /* Seed RNG */
+    int secret_number, guess;
+    int attempts = 0;
 
+    srand(time(NULL));  // Seed random number generator
     display_rules();
 
-    int secret_number = generate_random_number(1, 100);
-    int attempts = 0;
-    int correct = 0;
+    secret_number = generate_random_number(1, 100);
 
-    while (!correct)
+    do
     {
-        int guess = get_player_guess();
+        guess = get_player_guess();
         attempts++;
-        correct = check_guess(secret_number, guess);
-    }
+    } while (!check_guess(secret_number, guess));
 
-    printf("It took you %d attempt%s.\n", attempts, attempts == 1 ? "" : "s");
+    printf("It took you %d attempt%s.\n", attempts, (attempts == 1) ? "" : "s");
 
     return 0;
 }
