@@ -4,31 +4,21 @@
 
 int main(void)
 {
-    char input[100];
+    char input[50];
     int number;
+    int i;
 
-    /* --- String to Integer Conversion --- */
+    /* String to integer conversion */
     printf("Enter a number as a string (e.g., \"456\"): ");
-    if (fgets(input, sizeof(input), stdin) != NULL)
-    {
-        /* Remove newline if present */
-        char *newline = input;
-        while (*newline != '\0') {
-            if (*newline == '\n') {
-                *newline = '\0';
-                break;
-            }
-            newline++;
-        }
+    scanf("%49s", input);
 
-        number = atoi(input);
-        printf("String \"%s\" converted to integer: %d\n\n", input, number);
-    }
+    number = atoi(input);
+    printf("String \"%s\" converted to integer: %d\n\n", input, number);
 
-    /* --- Random Number Generation --- */
+    /* Random number generation */
     srand(time(NULL));
     printf("Generating 3 random numbers:\n");
-    for (int i = 1; i <= 3; i++)
+    for (i = 1; i <= 3; i++)
     {
         printf("Random number %d: %d\n", i, rand());
     }
