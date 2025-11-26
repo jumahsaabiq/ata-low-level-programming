@@ -1,38 +1,30 @@
 #include <stdio.h>
 #include <string.h>
 
-/**
- * main - demonstrates strlen() and strcpy() from string.h
- *
- * Return: 0 on success
- */
 int main(void)
 {
     char input[100];
-    char dest_string[100];
-    size_t length;
+    char copy[100];
 
     printf("Enter a string: ");
-    fflush(stdout);
-
     fgets(input, sizeof(input), stdin);
+    input[strcspn(input, "\n")] = '\0'; // remove newline
 
-    /* Remove trailing newline if present */
-    for (int i = 0; input[i] != '\0'; i++)
-    {
-        if (input[i] == '\n')
-        {
-            input[i] = '\0';
-            break;
-        }
-    }
-
-    length = strlen(input);
-    strcpy(dest_string, input);
-
+    int len = strlen(input);  // calculate length
     printf("Original string: \"%s\"\n", input);
-    printf("Length of the string: %lu\n", (unsigned long)length);
-    printf("Copied string: \"%s\"\n", dest_string);
+    printf("Length of the string: %d\n", len);
+
+    // Copy the string
+    strcpy(copy, input);
+
+    printf("Copied string: \"%s\"\n", copy);
+
+    // C90-compatible for loop
+    int i;
+    for (i = 0; input[i] != '\0'; i++)
+    {
+        // just an example if you wanted to iterate
+    }
 
     return 0;
 }
