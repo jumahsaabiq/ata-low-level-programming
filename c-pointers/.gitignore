@@ -1,0 +1,10 @@
+# Ignore compiled binaries
+*.bin
+a.out
+
+# Ignore local test text files
+c-io-operators/*.txt
+
+# Ignore any other unwanted temporary files
+*.o
+
