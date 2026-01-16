@@ -2,20 +2,19 @@
 
 int main(void)
 {
-    int *uninitialized_ptr; // declared but not initialized
+    int *uninitialized_ptr = NULL; // Initialize to NULL for safety
 
-    /* 
-     * WARNING: uninitialized pointers contain garbage addresses.
-     * Using them (dereferencing) can cause undefined behavior,
-     * crashes, or segmentation faults, because they may point
-     * to memory we don’t own.
+    /*
+     * Originally, if a pointer is declared but not initialized,
+     * it may contain a random address (garbage value), which is dangerous.
+     * Dereferencing it can cause undefined behavior or segmentation faults.
+     *
+     * Here, we safely initialize it to NULL before using it.
      */
 
     printf("Value of uninitialized_ptr: %p\n", (void *)uninitialized_ptr);
 
-    // Initialize to NULL for safety
-    uninitialized_ptr = NULL;
-
+    // Confirm pointer is NULL
     if (uninitialized_ptr == NULL)
         printf("After initializing to NULL: uninitialized_ptr is NULL.\n");
 
