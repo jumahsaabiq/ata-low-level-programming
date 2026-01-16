@@ -9,6 +9,8 @@ int main(void)
         printf("ptr is NULL.\n");
 
     int valid_num = 15;
+    printf("Value for valid_num: %d\n", valid_num); // <-- missing in previous version
+
     ptr = &valid_num;     // assign valid address
 
     // Check again before dereferencing
